@@ -10,7 +10,7 @@ def index():
 def calculate():
     num1 = float(request.form['num1'])
     num2 = float(request.form['num2'])
-    operation = request.form[operation]
+    operation = request.form['operation']
 
     # Perform the calculation
     if operation == '+':
