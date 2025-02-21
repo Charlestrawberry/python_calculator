@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .calculator {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Basic Calculator</h2>
+        <form action="/calculate" method="POST">
+            <input type="number" name="num1" placeholder="Enter first number" required>
+            <input type="number" name="num2" placeholder="Enter second number" required>
+            <select name="operation" required>
+                <option value="+">Addition (+)</option>
+                <option value="-">Subtraction (-)</option>
+                <option value="*">Multiplication (*)</option>
+                <option value="/">Division (/)</option>
+            </select>
+            <button type="submit">Calculate</button>
+        </form>
+        {% if result is defined %}
+            <div class="result">
+                {{ num1 }} {{ operation }} {{ num2 }} = {{ result }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
